@@ -14,12 +14,13 @@ The task is described [here](https://ayende.com/blog/176034/making-code-faster-t
 > 
 > What we need to do is to find out how much time a car spent in the lot based on this file.
 
-The data and the original solution are included inside `/task` directory.
+The data and the original solution are included inside `/task` directory. You need to unzip it before you start. There is also `short.txt`, which is a smaller dataset, suitable for testing.
 
 ### Usage
 
 ```bash
 cd cloned-project-directory
+unzip task/data.zip -d task/
 swift build
 ./.build/debug/ayende ./task/data.txt 
 # or
