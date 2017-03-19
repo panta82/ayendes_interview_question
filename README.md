@@ -1,5 +1,7 @@
 # Ayende's interview question
 
+Coded in Swift, as an excercise.
+
 The task is described [here](https://ayende.com/blog/176034/making-code-faster-the-interview-question).
 
 > We have the following file (the full data set is 276 MB), that contains the entry / exit log to a parking lot.
