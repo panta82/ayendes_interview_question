@@ -23,7 +23,7 @@ namespace ConsoleApplication1
             //AppDomain.MonitoringIsEnabled = true;
             var sp = Stopwatch.StartNew();
 
-            const string path = @"data.txt";
+            string path = args.Length > 0 ? args[0] : @"data.txt";
             var summary = from line in File.ReadAllLines(path)
                 let parts = line.Split(' ')
                 let record = new Record

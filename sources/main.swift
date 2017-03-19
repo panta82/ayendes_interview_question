@@ -17,35 +17,33 @@ class Accumulator {
 	private let dateFormatter: DateFormatter = {
 		let df = DateFormatter()
 		df.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+		df.timeZone = TimeZone(secondsFromGMT: 0)
 		return df
 	}()
 
 	func submitLine(_ line: String) {
 		let parts = line.components(separatedBy: " ")
 		if parts.count < 3 {
-			// Invalid line
+			print("Invalid line: \(line)")
 			return
 		}
 		guard let from = dateFormatter.date(from: parts[0]), let to = dateFormatter.date(from: parts[1]) else {
-			// Invalid date formats
+			print("Invalid dates: \(parts[0]), \(parts[1])")
 			return
 		}
 
-		let elapsed = to.timeIntervalSince(from)
 		let car = parts[2]
 		
+		let elapsed = to.timeIntervalSince(from)
 		data[car] = (data[car] ?? 0) + elapsed
 	}
 
 	func printResults() {
-		for (car, duration) in data {
-			print("\(car)  \(formatInterval(duration))")
-		}
+		print("Result count: \(data.count)")
+		//for (car, duration) in data {
+			//print("\(car)  \(formatInterval(duration))")
+		//}
 	}
-}
-
-func handleLine(_ line: String) {
-	print(line)
 }
 
 func readFromStdIn(_ onLine: (String) -> Void) {
