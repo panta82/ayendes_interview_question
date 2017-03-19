@@ -20,7 +20,7 @@ namespace ConsoleApplication1
     {
         static void Main(string[] args)
         {
-            AppDomain.MonitoringIsEnabled = true;
+            //AppDomain.MonitoringIsEnabled = true;
             var sp = Stopwatch.StartNew();
 
             const string path = @"data.txt";
@@ -48,7 +48,9 @@ namespace ConsoleApplication1
                 }
             }
 
-            Console.WriteLine($"Took: {sp.ElapsedMilliseconds:#,#} ms and allocated {AppDomain.CurrentDomain.MonitoringTotalAllocatedMemorySize/1024:#,#} kb with peak working set of {Process.GetCurrentProcess().PeakWorkingSet64/1024:#,#} kb");
+            Console.WriteLine($"Took: {sp.ElapsedMilliseconds:#,#} ms");
+
+            //Console.WriteLine($"Took: {sp.ElapsedMilliseconds:#,#} ms and allocated {AppDomain.CurrentDomain.MonitoringTotalAllocatedMemorySize/1024:#,#} kb with peak working set of {Process.GetCurrentProcess().PeakWorkingSet64/1024:#,#} kb");
 
         }
     }
