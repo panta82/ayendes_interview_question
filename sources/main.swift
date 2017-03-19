@@ -40,9 +40,9 @@ class Accumulator {
 
 	func printResults() {
 		print("Result count: \(data.count)")
-		//for (car, duration) in data {
-			//print("\(car)  \(formatInterval(duration))")
-		//}
+		for (key, duration) in data {
+			print("\(key)  \(formatInterval(duration))")
+		}
 	}
 }
 
@@ -76,6 +76,10 @@ func readFromFile(_ rawFilename: String, _ onLine: (String) -> Void) {
 let startedAt = Date()
 
 let accumulator = Accumulator()
+
+// Shortcut to the naive solution
+//readAllFromFileAndTally(CommandLine.arguments[1])
+
 if (CommandLine.arguments.count > 1) {
 	readFromFile(CommandLine.arguments[1], accumulator.submitLine)
 } else {
